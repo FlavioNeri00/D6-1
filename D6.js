@@ -40,7 +40,12 @@ console.log(sum);
 /* ESERCIZIO 5 (reduce)
   Scrivi una funzione per sommare i numeri contenuti in un array
 */
-
+let reduceSum = newNumber.reduce((accumulator, currentElement) => {
+  console.log(accumulator);
+  console.log(currentElement);
+  return accumulator + currentElement;
+}, 0);
+console.log(reduceSum);
 /* ESERCIZIO 6 (map)
   Scrivi una funzione che, dato un array di soli numeri e un numero n come parametri, ritorni un secondo array con tutti i valori del precedente incrementati di n
 */
@@ -224,12 +229,18 @@ console.log(title);
   Scrivi una funzione per ottenere dall'array fornito solamente i film usciti nel millennio corrente.
 */
 
-const milleMovies = movies.filter((movies) => movies.Year > 1999);
+const milleMovies = movies.filter((movies) => parseInt(movies.Year) > 1999);
 console.log(milleMovies);
 
 /* ESERCIZIO 13 (reduce)
   Scrivi una funzione per calcolare la somma di tutti gli anni in cui sono stati prodotti i film contenuti nell'array fornito.
 */
+const summedYears = movies.reduce((accumulator, currentElement) => {
+  console.log("accumulator", accumulator);
+  console.log("current", currentElement.Year);
+  return accumulator + parseInt(currentElement.Year);
+}, 0);
+console.log(summedYears);
 
 /* ESERCIZIO 14 (find)
   Scrivi una funzione per ottenere dall'array fornito uno specifico film (la funzione riceve un imdbID come parametro).
@@ -241,6 +252,6 @@ console.log(movieID);
 /* ESERCIZIO 15 (findIndex)
   Scrivi una funzione per ottenere dall'array fornito l'indice del primo film uscito nell'anno fornito come parametro.
 */
-releaseYear = "2019";
+releaseYear = "2005";
 const movieYear = movies.findIndex((movies) => movies.Year === releaseYear);
 console.log(movieYear);
